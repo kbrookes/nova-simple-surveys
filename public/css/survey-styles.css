@@ -1,0 +1,576 @@
+/**
+ * Nova Surveys - Frontend Styles
+ *
+ * @package Nova_Simple_Surveys
+ * @since 1.0.0
+ */
+
+/* Reset and base styles */
+.nova-survey-container {
+    --primary-color: #0073aa;
+    --primary-hover: #005a87;
+    --secondary-color: #f1f1f1;
+    --text-color: #333;
+    --border-color: #ddd;
+    --error-color: #dc3232;
+    --success-color: #46b450;
+    --background-color: #fff;
+    --border-radius: 8px;
+    --transition: all 0.3s ease;
+    
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: var(--background-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+/* Header styles */
+.nova-survey-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.nova-survey-title {
+    font-size: 2em;
+    margin: 0 0 10px 0;
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.nova-survey-description {
+    font-size: 1.1em;
+    color: #666;
+    margin: 0;
+}
+
+/* Progress bar */
+.nova-survey-progress {
+    margin-bottom: 30px;
+}
+
+.nova-survey-progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.nova-survey-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), #00a0d2);
+    transition: width 0.5s ease;
+    border-radius: 4px;
+}
+
+.nova-survey-progress-text {
+    display: block;
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Step styles */
+.nova-survey-step {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.nova-survey-question {
+    margin-bottom: 30px;
+}
+
+.question-title {
+    font-size: 1.3em;
+    margin-bottom: 20px;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.required {
+    color: var(--error-color);
+    margin-left: 3px;
+}
+
+/* Question input styles */
+.question-input {
+    margin-bottom: 20px;
+}
+
+/* Rating scale styles */
+.rating-scale {
+    text-align: center;
+}
+
+.rating-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    color: #666;
+    font-size: 14px;
+}
+
+.rating-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.rating-option {
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.rating-option input {
+    display: none;
+}
+
+.rating-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border: 2px solid var(--border-color);
+    border-radius: 50%;
+    background: var(--background-color);
+    font-weight: 600;
+    font-size: 16px;
+    transition: var(--transition);
+    color: var(--text-color);
+}
+
+.rating-option:hover .rating-button {
+    border-color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+.rating-option input:checked + .rating-button,
+.rating-option.selected .rating-button {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+/* Yes/No and Multiple Choice styles */
+.yes-no-options,
+.multiple-choice-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.yes-no-option,
+.multiple-choice-option {
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.yes-no-option input,
+.multiple-choice-option input {
+    display: none;
+}
+
+.option-button,
+.option-text {
+    display: block;
+    padding: 15px 20px;
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background: var(--background-color);
+    transition: var(--transition);
+    text-align: center;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.yes-no-option:hover .option-button,
+.multiple-choice-option:hover .option-text {
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 115, 170, 0.15);
+}
+
+.yes-no-option input:checked + .option-button,
+.yes-no-option.selected .option-button,
+.multiple-choice-option input:checked + .option-text,
+.multiple-choice-option.selected .option-text {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 115, 170, 0.25);
+}
+
+/* Form field styles */
+.nova-survey-form-fields {
+    margin-bottom: 25px;
+}
+
+.form-field {
+    margin-bottom: 20px;
+}
+
+.form-field label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.form-field input,
+.form-field textarea,
+.form-field select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    transition: var(--transition);
+    box-sizing: border-box;
+}
+
+.form-field input:focus,
+.form-field textarea:focus,
+.form-field select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 115, 170, 0.1);
+}
+
+/* Button styles */
+.nova-survey-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border: 2px solid transparent;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    transition: var(--transition);
+    min-width: 120px;
+}
+
+.nova-survey-btn-primary {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.nova-survey-btn-primary:hover {
+    background: var(--primary-hover);
+    border-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 115, 170, 0.25);
+}
+
+.nova-survey-btn-secondary {
+    background: var(--secondary-color);
+    color: var(--text-color);
+    border-color: var(--border-color);
+}
+
+.nova-survey-btn-secondary:hover {
+    background: #e1e1e1;
+    border-color: #ccc;
+    transform: translateY(-2px);
+}
+
+.nova-survey-btn-large {
+    padding: 16px 32px;
+    font-size: 18px;
+    min-width: 160px;
+}
+
+/* Step actions */
+.nova-survey-step-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    gap: 15px;
+}
+
+.nova-survey-step-actions .nova-survey-btn:only-child {
+    margin-left: auto;
+}
+
+/* Loading state */
+.nova-survey-loading {
+    text-align: center;
+    padding: 60px 20px;
+    background: var(--background-color);
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.nova-survey-loading p {
+    font-size: 18px;
+    color: #666;
+    margin: 0;
+}
+
+/* Messages */
+.nova-survey-messages {
+    margin: 20px 0;
+}
+
+.nova-survey-message {
+    padding: 15px 20px;
+    border-radius: var(--border-radius);
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.nova-survey-success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.nova-survey-error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Error states */
+.error {
+    border-color: var(--error-color) !important;
+    box-shadow: 0 0 0 3px rgba(220, 50, 50, 0.1) !important;
+}
+
+.error-message {
+    color: var(--error-color);
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+}
+
+/* Results page */
+.nova-survey-results {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.results-header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.results-score {
+    margin: 40px 0;
+    padding: 30px;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-radius: var(--border-radius);
+}
+
+.results-score h2 {
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.score-display {
+    font-size: 4em;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin: 20px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.score-interpretation {
+    font-size: 1.2em;
+    color: #666;
+    margin: 20px 0;
+    line-height: 1.5;
+}
+
+.results-cta {
+    margin: 40px 0;
+    padding: 30px;
+    background: var(--background-color);
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius);
+}
+
+.results-footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+    color: #666;
+}
+
+/* Intro page */
+.nova-survey-intro {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.nova-survey-intro-content {
+    margin: 30px 0;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+.nova-survey-actions {
+    margin-top: 40px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .nova-survey-container {
+        margin: 10px;
+        padding: 15px;
+    }
+    
+    .nova-survey-title {
+        font-size: 1.5em;
+    }
+    
+    .rating-buttons {
+        gap: 8px;
+    }
+    
+    .rating-button {
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+    }
+    
+    .nova-survey-step-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .nova-survey-btn {
+        width: 100%;
+        min-width: auto;
+    }
+    
+    .score-display {
+        font-size: 3em;
+    }
+    
+    .yes-no-options,
+    .multiple-choice-options {
+        gap: 8px;
+    }
+    
+    .option-button,
+    .option-text {
+        padding: 12px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nova-survey-container {
+        margin: 5px;
+        padding: 10px;
+    }
+    
+    .rating-buttons {
+        gap: 6px;
+    }
+    
+    .rating-button {
+        width: 35px;
+        height: 35px;
+        font-size: 13px;
+    }
+    
+    .nova-survey-title {
+        font-size: 1.3em;
+    }
+    
+    .score-display {
+        font-size: 2.5em;
+    }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    .nova-survey-container,
+    .nova-survey-progress-fill,
+    .rating-button,
+    .option-button,
+    .option-text,
+    .nova-survey-btn {
+        transition: none;
+    }
+    
+    .nova-survey-step {
+        animation: none;
+    }
+    
+    .loading-spinner {
+        animation: none;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .nova-survey-container {
+        --border-color: #000;
+        border: 2px solid var(--border-color);
+    }
+    
+    .rating-button,
+    .option-button,
+    .option-text {
+        border-color: #000;
+    }
+}
+
+/* Focus indicators for keyboard navigation */
+.nova-survey-btn:focus,
+.rating-option:focus,
+.yes-no-option:focus,
+.multiple-choice-option:focus {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+    .nova-survey-container {
+        box-shadow: none;
+        border: 1px solid #000;
+    }
+    
+    .nova-survey-btn,
+    .nova-survey-progress,
+    .nova-survey-loading {
+        display: none;
+    }
+} 
